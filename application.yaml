@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR_ORG/YOUR_REPOSITORY.git
+    repoURL: https://github.com/swapnilshrirao9/AWX_helm2.git
     targetRevision: HEAD
     path: k3s-awx-setup/AWX_helm2
   destination:
