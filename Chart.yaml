@@ -1,0 +1,6 @@
+apiVersion: v2
+name: awx
+description: Deploy an AWX custom resource managed by the AWX Operator
+type: application
+version: 0.1.0
+appVersion: "1.0"

@@ -1,0 +1,9 @@
+{{- if .Values.awx.enabled }}
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: {{ .Values.awx.name | quote }}
+  namespace: {{ .Values.awx.namespace | default .Release.Namespace | quote }}
+spec:
+{{- toYaml .Values.awx.spec | nindent 2 }}
+{{- end }}

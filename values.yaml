@@ -1,0 +1,42 @@
+awx:
+  enabled: true
+  name: awx
+  namespace: awx
+  spec:
+    service_type: NodePort
+    node_selector:
+      awx-lts: "true"
+
+    extra_volumes: |
+      - name: ssh-secret-volume
+        secret:
+          secretName: awx-ssh-private-key
+          items:
+            - key: id_rsa
+              path: id_rsa
+            - key: id_rsa.pub
+              path: id_rsa.pub
+      - name: ssh-writable-volume
+        emptyDir: {}
+
+    init_container_extra_volume_mounts: |
+      - name: ssh-secret-volume
+        mountPath: /tmp/ssh-secret
+        readOnly: true
+      - name: ssh-writable-volume
+        mountPath: /root/.ssh
+
+    init_container_extra_commands: |
+      mkdir -p /root/.ssh
+      cp /tmp/ssh-secret/id_rsa /root/.ssh/id_rsa
+      cp /tmp/ssh-secret/id_rsa.pub /root/.ssh/id_rsa.pub
+      chmod 700 /root/.ssh
+      chmod 600 /root/.ssh/id_rsa
+      chmod 644 /root/.ssh/id_rsa.pub
+
+    task_extra_volume_mounts: |
+      - name: ssh-writable-volume
+        mountPath: /root/.ssh
+
+networkPolicy:
+  enabled: true
