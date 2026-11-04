@@ -11,8 +11,7 @@
 
 
 This chart creates an `AWX` custom resource. An AWX Operator that serves
-`awx.ansible.com/v1beta1` must already be installed in the cluster before
-syncing this chart.
+`awx.ansible.com/v1beta1` must be installed in the cluster before syncing.
 
 The chart also installs the SSH ingress NetworkPolicy from the original
 configuration. Disable it with `networkPolicy.enabled: false` if that policy
@@ -46,5 +45,4 @@ it into the Argo CD web portal. The source path is
 `k3s-awx-setup/AWX_helm2`.
 
 The Application creates the `awx` namespace if needed, but the SSH Secret
-must be created separately. The AWX Operator is also a prerequisite and is
-not installed by this chart.
+must be created separately. The AWX Operator is also a prerequisite.

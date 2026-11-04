@@ -4,6 +4,8 @@ kind: AWX
 metadata:
   name: {{ .Values.awx.name | quote }}
   namespace: {{ .Values.awx.namespace | default .Release.Namespace | quote }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
 {{- toYaml .Values.awx.spec | nindent 2 }}
 {{- end }}

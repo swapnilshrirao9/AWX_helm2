@@ -39,3 +39,10 @@ awx:
 
 networkPolicy:
   enabled: true
+
+awxOperator:
+  operator-controller:
+    spec:
+      template:
+        spec:
+          imagePullSecrets: []
