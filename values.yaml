@@ -54,3 +54,8 @@ awxOperator:
                     matchLabels:
                       control-plane: controller-manager
                   topologyKey: kubernetes.io/hostname
+  operator-controller-containers:
+    awx-manager:
+      readinessProbe:
+        initialDelaySeconds: 50
+        timeoutSeconds: 20
