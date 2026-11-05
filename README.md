@@ -8,7 +8,8 @@
 3) Secret name will be awx-ssh-private-key
 4) Need to add run the https://dev.azure.com/Azure-Creation/Create_Backend/_build?definitionId=25
 
-
+# Issue face
+1) Secrets in privious relese not working proper so delete it other wise change the namespace
 
 This chart creates an `AWX` custom resource. An AWX Operator that serves
 `awx.ansible.com/v1beta1` must be installed in the cluster before syncing.

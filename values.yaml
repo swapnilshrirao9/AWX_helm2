@@ -4,7 +4,7 @@ awx:
   namespace: awx
   spec:
     service_type: NodePort
-    node_selector: "awx-lts=true"
+   # node_selector: "awx-lts=true"
 
     extra_volumes: |
       - name: ssh-secret-volume
