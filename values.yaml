@@ -43,6 +43,14 @@ networkPolicy:
 awxOperator:
   operator-controller:
     spec:
+      replicas: 2
       template:
         spec:
           imagePullSecrets: []
+          affinity:
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchLabels:
+                      control-plane: controller-manager
+                  topologyKey: kubernetes.io/hostname

@@ -13,6 +13,10 @@
 
 This chart creates an `AWX` custom resource. An AWX Operator that serves
 `awx.ansible.com/v1beta1` must be installed in the cluster before syncing.
+The bundled operator chart is configured for two controller replicas and
+required pod anti-affinity by node hostname, so each replica needs a separate
+schedulable node. With fewer than two eligible nodes, one replica will remain
+Pending.
 
 The chart also installs the SSH ingress NetworkPolicy from the original
 configuration. Disable it with `networkPolicy.enabled: false` if that policy
