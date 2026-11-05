@@ -3,7 +3,7 @@ awx:
   name: awx
   namespace: awx
   spec:
-    image_version: "18.0.0"
+    image_version: "24.6.1"
     service_type: NodePort
     node_selector: "awx-lts1=true"
 
