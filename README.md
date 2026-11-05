@@ -13,6 +13,7 @@
 
 This chart creates an `AWX` custom resource. An AWX Operator that serves
 `awx.ansible.com/v1beta1` must be installed in the cluster before syncing.
+The AWX image version is pinned to `18.0.0` in `values.yaml`.
 The bundled operator chart is configured for two controller replicas and
 required pod anti-affinity by node hostname, so each replica needs a separate
 schedulable node. With fewer than two eligible nodes, one replica will remain
