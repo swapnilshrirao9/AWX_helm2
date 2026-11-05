@@ -5,9 +5,6 @@ awx:
   spec:
     image_version: "24.0.0"
     service_type: NodePort
-    node_selector:
-      awx-lts1: "true"
-
     extra_volumes: |
       - name: ssh-secret-volume
         secret:
